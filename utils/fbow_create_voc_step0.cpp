@@ -81,6 +81,7 @@ void saveToFile(string filename,const vector<cv::Mat> &features,  std::string  d
 	std::ofstream ofile(filename, std::ios::binary);
     if (!ofile.is_open()){cerr<<"could not open output file"<<endl;exit(0);}
 
+    desc_name = "pleasenobreak";
     char _desc_name[20];
     desc_name.resize(min(size_t(19),desc_name.size()));
     strcpy(_desc_name,desc_name.c_str());
@@ -92,6 +93,7 @@ void saveToFile(string filename,const vector<cv::Mat> &features,  std::string  d
         if( !f.isContinuous()){
             cerr<<"Matrices should be continuous"<<endl;exit(0);
         }
+        cout << f.cols << " " << f.rows << " " << f.type() << '\n';
         uint32_t aux=f.cols; ofile.write( (char*)&aux,sizeof(aux));
         aux=f.rows; ofile.write( (char*)&aux,sizeof(aux));
         aux=f.type(); ofile.write( (char*)&aux,sizeof(aux));
