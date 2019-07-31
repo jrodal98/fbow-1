@@ -22,23 +22,14 @@ vector<cv::Mat> readFeatures(){
     vector<cv::Mat> features;
     agent_brain::slam_data slam_data;
     std::vector<uchar> data_vec;
-    uint32_t size;
-    unsigned char size_bits[32];
-    while (1) {
-        // cerr << "hello1" << endl;
-        if (read(0,&size_bits, sizeof(size_bits)) < 0) exit_message("Error reading protobuf size.");
-        
-        // cerr << "hello2" << endl;
-        size = stoi(( char * ) size_bits, nullptr, 2);
+    while (cin) {
+        uint64_t size;
+        cin.read(static_cast<char*>(static_cast<void*>(&size)), sizeof(size));
+        data_vec.resize(size);
         cerr << "size: " << size << endl;
-        if (size == 0) {
-            cerr << "Done reading protobuf data" << endl;
-            break;
-        }
-        uchar data_arr[size];
-        if (read(0,&data_arr, size) < 0) exit_message("Error reading protobuf data.");
-        
-        slam_data.ParseFromArray(data_arr, size);
+        cin.read(static_cast<char*>(static_cast<void*>(data_vec.data())), size);
+
+        slam_data.ParseFromArray(data_vec.data(), size);
         // cerr << "hello3" << endl;
         size_t data_size = slam_data.descriptions_size();
         uchar data[data_size][32];
@@ -56,6 +47,8 @@ vector<cv::Mat> readFeatures(){
         features.push_back(mat);
         
     }
+
+    cerr << "Done reading protobuf data" << endl;
     
     return features;
 }
