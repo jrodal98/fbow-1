@@ -22,15 +22,14 @@ vector<cv::Mat> readFeatures(){
     vector<cv::Mat> features;
     agent_brain::slam_data slam_data;
     std::vector<uchar> data_vec;
+    cerr << "Reading data from agent in real time ... This might take awhile." << endl;
     while (cin) {
         uint64_t size;
         cin.read(static_cast<char*>(static_cast<void*>(&size)), sizeof(size));
         data_vec.resize(size);
-        cerr << "size: " << size << endl;
         cin.read(static_cast<char*>(static_cast<void*>(data_vec.data())), size);
 
         slam_data.ParseFromArray(data_vec.data(), size);
-        // cerr << "hello3" << endl;
         size_t data_size = slam_data.descriptions_size();
         uchar data[data_size][32];
         int row = 0;
@@ -42,13 +41,12 @@ vector<cv::Mat> readFeatures(){
             }
             row++;
         }
-        // cerr << "hello4" << endl;
         cv::Mat mat(data_size,32,0,&data);
         features.push_back(mat);
         
     }
 
-    cerr << "Done reading protobuf data" << endl;
+    cerr << "Done reading data from agent." << endl;
     
     return features;
 }

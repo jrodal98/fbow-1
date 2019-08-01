@@ -38,7 +38,7 @@ namespace protobuf_agent_5fbrain_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[3];
+  static const ::google::protobuf::internal::ParseTable schema[2];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -49,9 +49,6 @@ namespace agent_brain {
 class slam_data;
 class slam_dataDefaultTypeInternal;
 extern slam_dataDefaultTypeInternal _slam_data_default_instance_;
-class slam_data_bin_description;
-class slam_data_bin_descriptionDefaultTypeInternal;
-extern slam_data_bin_descriptionDefaultTypeInternal _slam_data_bin_description_default_instance_;
 class slam_data_keypoint;
 class slam_data_keypointDefaultTypeInternal;
 extern slam_data_keypointDefaultTypeInternal _slam_data_keypoint_default_instance_;
@@ -59,7 +56,6 @@ extern slam_data_keypointDefaultTypeInternal _slam_data_keypoint_default_instanc
 namespace google {
 namespace protobuf {
 template<> ::agent_brain::slam_data* Arena::CreateMaybeMessage<::agent_brain::slam_data>(Arena*);
-template<> ::agent_brain::slam_data_bin_description* Arena::CreateMaybeMessage<::agent_brain::slam_data_bin_description>(Arena*);
 template<> ::agent_brain::slam_data_keypoint* Arena::CreateMaybeMessage<::agent_brain::slam_data_keypoint>(Arena*);
 }  // namespace protobuf
 }  // namespace google
@@ -191,117 +187,6 @@ class slam_data_keypoint : public ::google::protobuf::Message /* @@protoc_insert
 };
 // -------------------------------------------------------------------
 
-class slam_data_bin_description : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:agent_brain.slam_data.bin_description) */ {
- public:
-  slam_data_bin_description();
-  virtual ~slam_data_bin_description();
-
-  slam_data_bin_description(const slam_data_bin_description& from);
-
-  inline slam_data_bin_description& operator=(const slam_data_bin_description& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  slam_data_bin_description(slam_data_bin_description&& from) noexcept
-    : slam_data_bin_description() {
-    *this = ::std::move(from);
-  }
-
-  inline slam_data_bin_description& operator=(slam_data_bin_description&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const slam_data_bin_description& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const slam_data_bin_description* internal_default_instance() {
-    return reinterpret_cast<const slam_data_bin_description*>(
-               &_slam_data_bin_description_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  void Swap(slam_data_bin_description* other);
-  friend void swap(slam_data_bin_description& a, slam_data_bin_description& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline slam_data_bin_description* New() const final {
-    return CreateMaybeMessage<slam_data_bin_description>(NULL);
-  }
-
-  slam_data_bin_description* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<slam_data_bin_description>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const slam_data_bin_description& from);
-  void MergeFrom(const slam_data_bin_description& from);
-  void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(slam_data_bin_description* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // string description = 1;
-  void clear_description();
-  static const int kDescriptionFieldNumber = 1;
-  const ::std::string& description() const;
-  void set_description(const ::std::string& value);
-  #if LANG_CXX11
-  void set_description(::std::string&& value);
-  #endif
-  void set_description(const char* value);
-  void set_description(const char* value, size_t size);
-  ::std::string* mutable_description();
-  ::std::string* release_description();
-  void set_allocated_description(::std::string* description);
-
-  // @@protoc_insertion_point(class_scope:agent_brain.slam_data.bin_description)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr description_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::protobuf_agent_5fbrain_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
 class slam_data : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:agent_brain.slam_data) */ {
  public:
   slam_data();
@@ -337,7 +222,7 @@ class slam_data : public ::google::protobuf::Message /* @@protoc_insertion_point
                &_slam_data_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
   void Swap(slam_data* other);
   friend void swap(slam_data& a, slam_data& b) {
@@ -388,7 +273,6 @@ class slam_data : public ::google::protobuf::Message /* @@protoc_insertion_point
   // nested types ----------------------------------------------------
 
   typedef slam_data_keypoint keypoint;
-  typedef slam_data_bin_description bin_description;
 
   // accessors -------------------------------------------------------
 
@@ -506,63 +390,6 @@ slam_data_keypoint::mutable_bgr() {
 
 // -------------------------------------------------------------------
 
-// slam_data_bin_description
-
-// string description = 1;
-inline void slam_data_bin_description::clear_description() {
-  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& slam_data_bin_description::description() const {
-  // @@protoc_insertion_point(field_get:agent_brain.slam_data.bin_description.description)
-  return description_.GetNoArena();
-}
-inline void slam_data_bin_description::set_description(const ::std::string& value) {
-  
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:agent_brain.slam_data.bin_description.description)
-}
-#if LANG_CXX11
-inline void slam_data_bin_description::set_description(::std::string&& value) {
-  
-  description_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:agent_brain.slam_data.bin_description.description)
-}
-#endif
-inline void slam_data_bin_description::set_description(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:agent_brain.slam_data.bin_description.description)
-}
-inline void slam_data_bin_description::set_description(const char* value, size_t size) {
-  
-  description_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:agent_brain.slam_data.bin_description.description)
-}
-inline ::std::string* slam_data_bin_description::mutable_description() {
-  
-  // @@protoc_insertion_point(field_mutable:agent_brain.slam_data.bin_description.description)
-  return description_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* slam_data_bin_description::release_description() {
-  // @@protoc_insertion_point(field_release:agent_brain.slam_data.bin_description.description)
-  
-  return description_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void slam_data_bin_description::set_allocated_description(::std::string* description) {
-  if (description != NULL) {
-    
-  } else {
-    
-  }
-  description_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), description);
-  // @@protoc_insertion_point(field_set_allocated:agent_brain.slam_data.bin_description.description)
-}
-
-// -------------------------------------------------------------------
-
 // slam_data
 
 // repeated .agent_brain.slam_data.keypoint keypoints = 1;
@@ -667,8 +494,6 @@ slam_data::mutable_descriptions() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 

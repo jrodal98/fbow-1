@@ -28,11 +28,6 @@ class slam_data_keypointDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<slam_data_keypoint>
       _instance;
 } _slam_data_keypoint_default_instance_;
-class slam_data_bin_descriptionDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<slam_data_bin_description>
-      _instance;
-} _slam_data_bin_description_default_instance_;
 class slam_dataDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<slam_data>
@@ -54,20 +49,6 @@ static void InitDefaultsslam_data_keypoint() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_slam_data_keypoint =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsslam_data_keypoint}, {}};
 
-static void InitDefaultsslam_data_bin_description() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::agent_brain::_slam_data_bin_description_default_instance_;
-    new (ptr) ::agent_brain::slam_data_bin_description();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::agent_brain::slam_data_bin_description::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<0> scc_info_slam_data_bin_description =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsslam_data_bin_description}, {}};
-
 static void InitDefaultsslam_data() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -85,11 +66,10 @@ static void InitDefaultsslam_data() {
 
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_slam_data_keypoint.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_slam_data_bin_description.base);
   ::google::protobuf::internal::InitSCC(&scc_info_slam_data.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[3];
+::google::protobuf::Metadata file_level_metadata[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -101,12 +81,6 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::agent_brain::slam_data_keypoint, y_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::agent_brain::slam_data_keypoint, bgr_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::agent_brain::slam_data_bin_description, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::agent_brain::slam_data_bin_description, description_),
-  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::agent_brain::slam_data, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -116,13 +90,11 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::agent_brain::slam_data_keypoint)},
-  { 8, -1, sizeof(::agent_brain::slam_data_bin_description)},
-  { 14, -1, sizeof(::agent_brain::slam_data)},
+  { 8, -1, sizeof(::agent_brain::slam_data)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::agent_brain::_slam_data_keypoint_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::agent_brain::_slam_data_bin_description_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::agent_brain::_slam_data_default_instance_),
 };
 
@@ -141,21 +113,20 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 3);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 2);
 }
 
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\021agent_brain.proto\022\013agent_brain\"\254\001\n\tsla"
+      "\n\021agent_brain.proto\022\013agent_brain\"\204\001\n\tsla"
       "m_data\0222\n\tkeypoints\030\001 \003(\0132\037.agent_brain."
       "slam_data.keypoint\022\024\n\014descriptions\030\002 \003(\t"
       "\032-\n\010keypoint\022\t\n\001x\030\001 \001(\r\022\t\n\001y\030\002 \001(\r\022\013\n\003bg"
-      "r\030\003 \003(\r\032&\n\017bin_description\022\023\n\013descriptio"
-      "n\030\001 \001(\tb\006proto3"
+      "r\030\003 \003(\rb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 215);
+      descriptor, 175);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "agent_brain.proto", &protobuf_RegisterTypes);
 }
@@ -504,248 +475,6 @@ void slam_data_keypoint::InternalSwap(slam_data_keypoint* other) {
 
 // ===================================================================
 
-void slam_data_bin_description::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int slam_data_bin_description::kDescriptionFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-slam_data_bin_description::slam_data_bin_description()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_agent_5fbrain_2eproto::scc_info_slam_data_bin_description.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:agent_brain.slam_data.bin_description)
-}
-slam_data_bin_description::slam_data_bin_description(const slam_data_bin_description& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.description().size() > 0) {
-    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
-  }
-  // @@protoc_insertion_point(copy_constructor:agent_brain.slam_data.bin_description)
-}
-
-void slam_data_bin_description::SharedCtor() {
-  description_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-slam_data_bin_description::~slam_data_bin_description() {
-  // @@protoc_insertion_point(destructor:agent_brain.slam_data.bin_description)
-  SharedDtor();
-}
-
-void slam_data_bin_description::SharedDtor() {
-  description_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-void slam_data_bin_description::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* slam_data_bin_description::descriptor() {
-  ::protobuf_agent_5fbrain_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_agent_5fbrain_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const slam_data_bin_description& slam_data_bin_description::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_agent_5fbrain_2eproto::scc_info_slam_data_bin_description.base);
-  return *internal_default_instance();
-}
-
-
-void slam_data_bin_description::Clear() {
-// @@protoc_insertion_point(message_clear_start:agent_brain.slam_data.bin_description)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  description_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  _internal_metadata_.Clear();
-}
-
-bool slam_data_bin_description::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:agent_brain.slam_data.bin_description)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string description = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_description()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->description().data(), static_cast<int>(this->description().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "agent_brain.slam_data.bin_description.description"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:agent_brain.slam_data.bin_description)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:agent_brain.slam_data.bin_description)
-  return false;
-#undef DO_
-}
-
-void slam_data_bin_description::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:agent_brain.slam_data.bin_description)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string description = 1;
-  if (this->description().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->description().data(), static_cast<int>(this->description().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "agent_brain.slam_data.bin_description.description");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->description(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:agent_brain.slam_data.bin_description)
-}
-
-::google::protobuf::uint8* slam_data_bin_description::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:agent_brain.slam_data.bin_description)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string description = 1;
-  if (this->description().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->description().data(), static_cast<int>(this->description().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "agent_brain.slam_data.bin_description.description");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->description(), target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:agent_brain.slam_data.bin_description)
-  return target;
-}
-
-size_t slam_data_bin_description::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:agent_brain.slam_data.bin_description)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // string description = 1;
-  if (this->description().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->description());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void slam_data_bin_description::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:agent_brain.slam_data.bin_description)
-  GOOGLE_DCHECK_NE(&from, this);
-  const slam_data_bin_description* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const slam_data_bin_description>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:agent_brain.slam_data.bin_description)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:agent_brain.slam_data.bin_description)
-    MergeFrom(*source);
-  }
-}
-
-void slam_data_bin_description::MergeFrom(const slam_data_bin_description& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:agent_brain.slam_data.bin_description)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.description().size() > 0) {
-
-    description_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description_);
-  }
-}
-
-void slam_data_bin_description::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:agent_brain.slam_data.bin_description)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void slam_data_bin_description::CopyFrom(const slam_data_bin_description& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:agent_brain.slam_data.bin_description)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool slam_data_bin_description::IsInitialized() const {
-  return true;
-}
-
-void slam_data_bin_description::Swap(slam_data_bin_description* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void slam_data_bin_description::InternalSwap(slam_data_bin_description* other) {
-  using std::swap;
-  description_.Swap(&other->description_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata slam_data_bin_description::GetMetadata() const {
-  protobuf_agent_5fbrain_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_agent_5fbrain_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
 void slam_data::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -1029,9 +758,6 @@ namespace google {
 namespace protobuf {
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::agent_brain::slam_data_keypoint* Arena::CreateMaybeMessage< ::agent_brain::slam_data_keypoint >(Arena* arena) {
   return Arena::CreateInternal< ::agent_brain::slam_data_keypoint >(arena);
-}
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::agent_brain::slam_data_bin_description* Arena::CreateMaybeMessage< ::agent_brain::slam_data_bin_description >(Arena* arena) {
-  return Arena::CreateInternal< ::agent_brain::slam_data_bin_description >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::agent_brain::slam_data* Arena::CreateMaybeMessage< ::agent_brain::slam_data >(Arena* arena) {
   return Arena::CreateInternal< ::agent_brain::slam_data >(arena);
