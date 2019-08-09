@@ -26,6 +26,7 @@ vector<cv::Mat> readFeatures(){
     while (cin) {
         uint64_t size;
         cin.read(static_cast<char*>(static_cast<void*>(&size)), sizeof(size));
+	if (!size) break;
         data_vec.resize(size);
         cin.read(static_cast<char*>(static_cast<void*>(data_vec.data())), size);
 
